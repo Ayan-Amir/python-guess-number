@@ -1,7 +1,5 @@
 from constants import YES, USER_MESSAGES, ERROR_MESSAGE
 
-# guess the correct number
-
 attempts = 0
 number_guessed = False
 

@@ -1,40 +1,42 @@
+from constants import YES, USER_MESSAGES, ERROR_MESSAGE
+
 # guess the correct number
 
 attempts = 0
 number_guessed = False
 
 try:
-    guessing_number = int(input('Choose the number you want to guess from 1 to 100: '))
+    guessing_number = int(input(USER_MESSAGES['CHOOSE_GUESS_NUMBER']))
     if guessing_number > 100 or guessing_number < 1:
-        print('Number should be in the range of 1 to 100')
+        print(USER_MESSAGES['NUMBER_RANGE'])
         exit()
 except ValueError:
-    print('Kindly enter valid number')
+    print(USER_MESSAGES['ENTER_VALID_NUMBER'])
     exit()
 
 while not number_guessed:
     try:
-        user_input = int(input('Guess the number from 1 to 100: '))
+        user_input = int(input(USER_MESSAGES['GUESS_NUMBER']))
     except:
-        print('Enter Valid number')
+        print(USER_MESSAGES['ENTER_VALID_NUMBER'])
         continue
 
     if user_input > 100 or user_input < 1:
-        print('error: the guessing number should be in the range of 1 to 100')
-        played_again = input('Want to guess number again ? Yes / No: ').lower()
+        print(ERROR_MESSAGE['NUMBER_RANGE'])
+        played_again = input(USER_MESSAGES['NUMBER_RE_GUESS']).lower()
 
-        if played_again == 'yes':
+        if played_again == YES:
             continue
         else:
-            print('Game over!')
+            print(USER_MESSAGES['GAME_OVER'])
             break
 
     attempts += 1
 
     if user_input == guessing_number:
-       print(f'correct number, user take {attempts} attempt to solve this')
+       print(USER_MESSAGES['CORRECT_NUMBER'](attempts))
        number_guessed = True
     elif user_input > guessing_number:
-        print('too large')
+        print(USER_MESSAGES['TOO_LARGE'])
     else:
-        print('too small')
+        print(USER_MESSAGES['TOO_SMALL'])

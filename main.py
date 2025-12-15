@@ -1,1 +1,3 @@
-attempt = 0
+# guess the correct number
+
+attempts = 0

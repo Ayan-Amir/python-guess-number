@@ -13,5 +13,5 @@ USER_MESSAGES = {
 }
 
 ERROR_MESSAGE = {
-    'NUMBER_RANGE': 'error: the guessing number should be in the range of 1 to 100'
+    'NUMBER_RANGE': 'Error: the guessing number should be in the range of 1 to 100'
 }
